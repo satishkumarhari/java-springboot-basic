@@ -20,7 +20,7 @@ RUN mvn dependency:go-offline
 COPY src src
 RUN mvn package -Dmaven.test.skip=true
 
-FROM openjdk
+FROM docker.io/library/amazoncorretto
 COPY --from=0 /build/target/demo-0.0.1-SNAPSHOT.jar /app/target/demo-0.0.1-SNAPSHOT.jar
 
 EXPOSE 8081
